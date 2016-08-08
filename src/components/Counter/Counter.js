@@ -1,23 +1,27 @@
 import React from 'react'
-import classes from './Counter.scss'
+import { Grid, Row, Button, Header, Label } from 'semantic-react'
 
 export const Counter = (props) => (
-  <div>
-    <h2 className={classes.counterContainer}>
+  <Grid centered>
+  <Row>
+    <Header component="h2">
       Counter:
       {' '}
-      <span className={classes['counter--green']}>
+      <Label circular color="green">
         {props.counter}
-      </span>
-    </h2>
-    <button className='btn btn-default' onClick={props.increment}>
+      </Label>
+    </Header>
+    </Row>
+    <Row>
+    <Button onClick={props.increment}>
       Increment
-    </button>
+    </Button>
     {' '}
-    <button className='btn btn-default' onClick={props.doubleAsync}>
+    <Button onClick={props.doubleAsync}>
       Double (Async)
-    </button>
-  </div>
+    </Button>
+    </Row>
+  </Grid>
 )
 
 Counter.propTypes = {

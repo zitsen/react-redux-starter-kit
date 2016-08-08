@@ -1,18 +1,21 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
-import classes from './Header.scss'
+import { Grid, Row, Divider, Menu, MenuItem } from 'semantic-react'
 
 export const Header = () => (
-  <div>
-    <h1>React Redux Starter Kit</h1>
-    <IndexLink to='/' activeClassName={classes.activeRoute}>
-      Home
-    </IndexLink>
-    {' · '}
-    <Link to='/counter' activeClassName={classes.activeRoute}>
-      Counter
-    </Link>
-  </div>
+  <Grid centered={ true } container={ true }>
+    <Row><h1>React Redux Starter Kit</h1></Row>
+    <Row>
+    <Menu className="compact basic" text={ true }>
+      <MenuItem component={IndexLink} to="/" className="header">
+        Home
+      </MenuItem>
+      <MenuItem component={ Link } to='/counter'>
+        Counter
+      </MenuItem>
+    </Menu>
+    </Row>
+  </Grid>
 )
 
 export default Header
