@@ -1,18 +1,22 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
+import { Container, Header, Menu } from 'semantic-ui-react'
 import './Header.scss'
 
-export const Header = () => (
-  <div>
-    <h1>React Redux Starter Kit</h1>
-    <IndexLink to='/' activeClassName='route--active'>
-      Home
-    </IndexLink>
-    {' · '}
-    <Link to='/counter' activeClassName='route--active'>
-      Counter
-    </Link>
-  </div>
+export const AppHeader = () => (
+  <Container>
+    <Header as='h1'>
+      React Redux Starter Kit
+    </Header>
+    <Menu compact pointing secondary >
+      <Menu.Item as={IndexLink} to='/' active={location.pathname === '/'}>
+        Home
+      </Menu.Item>
+      <Menu.Item as={Link} to='/counter' active={location.pathname === '/counter'}>
+        Counter
+      </Menu.Item>
+    </Menu>
+  </Container>
 )
 
-export default Header
+export default AppHeader

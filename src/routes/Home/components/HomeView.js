@@ -1,13 +1,13 @@
 import React from 'react'
 import DuckImage from '../assets/Duck.jpg'
+import { Header, Image } from 'semantic-ui-react'
 import './HomeView.scss'
 
 export const HomeView = () => (
   <div>
-    <h4>Welcome!</h4>
-    <img
+    <Header as='h4'>Welcome!</Header>
+    <Image size='small'
       alt='This is a duck, because Redux!'
-      className='duck'
       src={DuckImage} />
   </div>
 )

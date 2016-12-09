@@ -1,15 +1,16 @@
 import React from 'react'
+import { Button, Header } from 'semantic-ui-react'
 
 export const Counter = (props) => (
-  <div style={{ margin: '0 auto' }} >
-    <h2>Counter: {props.counter}</h2>
-    <button className='btn btn-default' onClick={props.increment}>
+  <div>
+    <Header as='h2'>Counter: {props.counter}</Header>
+    <Button onClick={props.increment}>
       Increment
-    </button>
+    </Button>
     {' '}
-    <button className='btn btn-default' onClick={props.doubleAsync}>
+    <Button onClick={props.doubleAsync}>
       Double (Async)
-    </button>
+    </Button>
   </div>
 )
 

@@ -1,36 +1,33 @@
 import React from 'react'
-import { Header } from 'components/Header/Header'
-import { IndexLink, Link } from 'react-router'
+import { AppHeader } from 'components/Header/Header'
+// import { IndexLink, Link } from 'react-router'
 import { shallow } from 'enzyme'
+// import { Menu } from 'semantic-ui-react'
 
-describe('(Component) Header', () => {
+describe('(Component) AppHeader', () => {
   let _wrapper
 
   beforeEach(() => {
-    _wrapper = shallow(<Header />)
+    _wrapper = shallow(<AppHeader />)
   })
 
   it('Renders a welcome message', () => {
-    const welcome = _wrapper.find('h1')
-    expect(welcome).to.exist
-    expect(welcome.text()).to.match(/React Redux Starter Kit/)
+    _wrapper.find('Header').shallow()
+      .should.contain.text('React Redux Starter Kit')
   })
 
   describe('Navigation links...', () => {
     it('Should render a Link to Home route', () => {
-      expect(_wrapper.contains(
-        <IndexLink activeClassName='route--active' to='/'>
-          Home
-        </IndexLink>
-      )).to.be.true
+      _wrapper.find('MenuItem').first().shallow()
+        .find('IndexLink').shallow()
+        .find('Link').shallow()
+        .should.contain.text('Home')
     })
 
     it('Should render a Link to Counter route', () => {
-      expect(_wrapper.contains(
-        <Link activeClassName='route--active' to='/counter'>
-          Counter
-        </Link>
-      )).to.be.true
+      _wrapper.find('MenuItem').last().shallow()
+        .find('Link').shallow()
+        .should.contain.text('Counter')
     })
   })
 })
